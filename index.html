@@ -280,7 +280,16 @@ textarea{resize:vertical;min-height:65px;}
   </div>
 </div>
 
-<!-- NAMN MODAL -->
+<!-- LÖSENORD MODAL -->
+<div class="nov" id="pw-ov">
+  <div class="nbox">
+    <h2>🔐 Wassmans Familjeapp</h2>
+    <p>Ange lösenordet för att komma in.</p>
+    <input type="password" id="pw-in" placeholder="Lösenord..." maxlength="50" style="margin-bottom:8px" onkeydown="if(event.key==='Enter')checkPw()">
+    <div id="pw-err" style="color:var(--red);font-size:.8rem;margin-bottom:10px;display:none">❌ Fel lösenord, försök igen.</div>
+    <button class="btn btn-p btn-w" onclick="checkPw()">Logga in</button>
+  </div>
+</div>
 <div class="nov" id="nm-ov">
   <div class="nbox">
     <h2>👋 Välkommen!</h2>
@@ -301,7 +310,21 @@ textarea{resize:vertical;min-height:65px;}
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase,ref,onValue,push,remove,set,update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
-const db = getDatabase(initializeApp({
+const PW = 'Kre@tivtlösenord23';
+let unlocked = localStorage.getItem('wass_pw') === PW;
+if(!unlocked) document.getElementById('pw-ov').classList.add('open');
+
+window.checkPw=()=>{
+  const v=document.getElementById('pw-in').value;
+  if(v===PW){
+    localStorage.setItem('wass_pw',PW);
+    document.getElementById('pw-ov').classList.remove('open');
+    unlocked=true;
+  } else {
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('pw-in').value='';
+  }
+};
   apiKey:"AIzaSyB-uYeQ0z86IsiDnvzBQsvWbrXvdFuXn2s",
   authDomain:"wassmans.firebaseapp.com",projectId:"wassmans",
   storageBucket:"wassmans.firebasestorage.app",messagingSenderId:"430448265249",
