@@ -6,124 +6,67 @@
 <title>Wassmans Familjeapp</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --blue:#4a90d9;--blue2:#357abd;--accent:#e8f4fd;
-  --bg:#f5f7fa;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;
-  --border:#e0e6ed;--red:#e74c3c;--green:#27ae60;--orange:#f39c12;
-}
+:root{--blue:#4a90d9;--blue2:#357abd;--accent:#e8f4fd;--bg:#f5f7fa;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#e0e6ed;--red:#e74c3c;--green:#27ae60;--orange:#f39c12;}
 html,body{width:100%;overflow-x:hidden;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);max-width:480px;margin:0 auto;min-height:100vh;}
-
-/* HEADER */
 .hdr{background:var(--blue);color:#fff;padding:14px 16px 10px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.15);}
-.hdr h1{font-size:1.2rem;font-weight:700;}
-.hdr p{font-size:.72rem;opacity:.85;margin-top:2px;}
-
-/* NAV */
+.hdr h1{font-size:1.2rem;font-weight:700;}.hdr p{font-size:.72rem;opacity:.85;margin-top:2px;}
 .nav{display:flex;background:#fff;border-top:1px solid var(--border);position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:50;box-shadow:0 -2px 8px rgba(0,0,0,.08);}
 .nb{flex:1;padding:8px 2px 6px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.6rem;color:var(--muted);}
-.nb.active{color:var(--blue);}
-.nb .ic{font-size:1.3rem;}
-
-/* CONTENT */
+.nb.active{color:var(--blue);}.nb .ic{font-size:1.3rem;}
 .content{padding:14px;padding-bottom:76px;}
 .tab{display:none;}.tab.active{display:block;}
-
-/* CARD */
 .card{background:var(--card);border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
-
-/* CALENDAR */
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .cal-nav button{background:none;border:1px solid var(--border);border-radius:8px;padding:5px 12px;cursor:pointer;font-size:1rem;color:var(--text);}
-.cal-nav button:active{background:var(--accent);}
-.cal-hd{font-size:1rem;font-weight:700;text-align:center;}
-.cal-hy{font-size:.72rem;color:var(--muted);text-align:center;}
+.cal-hd{font-size:1rem;font-weight:700;text-align:center;}.cal-hy{font-size:.72rem;color:var(--muted);text-align:center;}
 .cal-grid{display:grid;grid-template-columns:20px repeat(7,1fr);gap:1px;}
 .wn{font-size:.55rem;color:#bbb;display:flex;align-items:center;justify-content:center;background:#f8f9fa;border-radius:3px;}
-.ch{text-align:center;font-size:.6rem;font-weight:700;padding:3px 0;color:var(--muted);}
-.ch.r{color:var(--red);}
-.cd{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;position:relative;transition:background .15s;}
-.cd:active{background:var(--accent);}
-.cd.ot{opacity:.28;cursor:default;}
+.ch{text-align:center;font-size:.6rem;font-weight:700;padding:3px 0;color:var(--muted);}.ch.r{color:var(--red);}
+.cd{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;position:relative;}
+.cd:active{background:var(--accent);}.cd.ot{opacity:.28;cursor:default;}.cd.ot:active{background:none;}
 .cd.he::after{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;position:absolute;bottom:2px;}
-.dn{font-size:.75rem;font-weight:500;line-height:1;}
-.dn.r{color:var(--red);font-weight:700;}
+.dn{font-size:.75rem;font-weight:500;line-height:1;}.dn.r{color:var(--red);font-weight:700;}
 .dn.td{background:var(--blue);color:#fff!important;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.72rem;}
-
-/* UPCOMING */
 .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .sec-t{font-size:.95rem;font-weight:700;}
 .up-item{display:flex;gap:10px;padding:10px;background:var(--accent);border-radius:8px;margin-bottom:6px;}
 .up-date{background:var(--blue);color:#fff;border-radius:8px;padding:4px 7px;text-align:center;min-width:40px;flex-shrink:0;}
-.up-d{font-size:1.1rem;font-weight:700;line-height:1;}
-.up-m{font-size:.55rem;text-transform:uppercase;}
-.up-info{flex:1;min-width:0;}
-.up-info strong{font-size:.85rem;display:block;}
-.up-info span{font-size:.72rem;color:var(--muted);}
+.up-d{font-size:1.1rem;font-weight:700;line-height:1;}.up-m{font-size:.55rem;text-transform:uppercase;}
+.up-info{flex:1;min-width:0;}.up-info strong{font-size:.85rem;display:block;}.up-info span{font-size:.72rem;color:var(--muted);}
 .abadge{display:inline-block;background:#fff3cd;color:#856404;border-radius:4px;padding:1px 4px;font-size:.65rem;margin-right:2px;margin-top:2px;}
 .rbadge{display:inline-block;background:#e8f8e8;color:var(--green);border-radius:4px;padding:1px 5px;font-size:.65rem;}
 .hbadge{display:inline-block;background:#fde8e8;color:var(--red);border-radius:4px;padding:2px 7px;font-size:.75rem;margin-bottom:8px;}
-
-/* OVERLAY / MODAL */
 .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:flex-end;}
 .ov.open{display:flex;}
 .modal{background:#fff;border-radius:18px 18px 0 0;padding:16px;width:100%;max-width:480px;margin:0 auto;max-height:88vh;overflow-y:auto;overflow-x:hidden;}
 .mc{float:right;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--muted);line-height:1;}
-.mh{font-size:.95rem;font-weight:700;margin-bottom:2px;padding-right:28px;}
-.ms{font-size:.75rem;color:var(--muted);margin-bottom:14px;}
-
-/* NAME OVERLAY */
-.nov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;}
-.nov.open{display:flex;}
-.nbox{background:#fff;border-radius:18px;padding:24px 20px;width:88%;max-width:340px;text-align:center;}
-.nbox h2{font-size:1.2rem;margin-bottom:6px;}
-.nbox p{font-size:.85rem;color:var(--muted);margin-bottom:16px;}
-
-/* NOTIF */
+.mh{font-size:.95rem;font-weight:700;margin-bottom:2px;padding-right:28px;}.ms{font-size:.75rem;color:var(--muted);margin-bottom:14px;}
+.cov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;}
+.cov.open{display:flex;}
+.cbox{background:#fff;border-radius:18px;padding:24px 20px;width:88%;max-width:340px;text-align:center;}
+.cbox h2{font-size:1.2rem;margin-bottom:6px;}.cbox p{font-size:.85rem;color:var(--muted);margin-bottom:16px;}
 .notif{display:none;position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#2c3e50;color:#fff;border-radius:10px;padding:10px 14px;font-size:.82rem;z-index:150;max-width:90%;width:440px;box-shadow:0 4px 14px rgba(0,0,0,.2);}
-.notif.show{display:block;}
-.notif-t{font-weight:700;margin-bottom:3px;}
+.notif.show{display:block;}.notif-t{font-weight:700;margin-bottom:3px;}
 .notif-c{float:right;background:none;border:none;color:#fff;cursor:pointer;font-size:1rem;margin-top:-2px;}
 .ni{padding:3px 0;border-bottom:1px solid rgba(255,255,255,.15);}.ni:last-child{border-bottom:none;}
-
-/* EVENT ITEMS */
 .ev-item{background:var(--accent);border-left:3px solid var(--blue);border-radius:6px;padding:9px 10px;margin-bottom:7px;position:relative;}
-.ev-t{font-weight:600;font-size:.87rem;padding-right:55px;}
-.ev-m{font-size:.72rem;color:var(--muted);margin-top:2px;}
-.ev-a{font-size:.72rem;color:var(--blue);margin-top:3px;}
+.ev-t{font-weight:600;font-size:.87rem;padding-right:55px;}.ev-m{font-size:.72rem;color:var(--muted);margin-top:2px;}.ev-a{font-size:.72rem;color:var(--blue);margin-top:3px;}
 .ev-act{display:flex;gap:4px;position:absolute;top:7px;right:6px;}
 .icon-btn{background:none;border:none;cursor:pointer;font-size:.85rem;padding:2px 4px;}
-
-/* FORM */
-.fg{margin-bottom:11px;}
-.fg label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:3px;}
-input[type=text],input[type=time],textarea,select{
-  width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:8px;
-  font-size:.88rem;font-family:inherit;outline:none;transition:border .2s;
-  -webkit-appearance:none;appearance:none;
-}
-input:focus,textarea:focus{border-color:var(--blue);}
-textarea{resize:vertical;min-height:65px;}
-.time-row{display:flex;gap:8px;align-items:center;}
-.time-row input{flex:1;}
-.time-sep{color:var(--muted);font-size:.85rem;flex-shrink:0;}
+.fg{margin-bottom:11px;}.fg label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:3px;}
+input[type=text],input[type=time],input[type=password],textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;font-family:inherit;outline:none;transition:border .2s;-webkit-appearance:none;}
+input:focus,textarea:focus{border-color:var(--blue);}textarea{resize:vertical;min-height:65px;}
+.time-row{display:flex;gap:8px;align-items:center;}.time-row input{flex:1;}.time-sep{color:var(--muted);font-size:.85rem;flex-shrink:0;}
 .adt{display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:.83rem;font-weight:600;cursor:pointer;}
 .adt input{width:17px;height:17px;accent-color:var(--blue);flex-shrink:0;}
 .cg{display:flex;flex-direction:column;gap:5px;}
 .cl{display:flex;align-items:center;gap:8px;font-size:.83rem;cursor:pointer;}
 .cl input[type=checkbox],.cl input[type=radio]{width:16px;height:16px;accent-color:var(--blue);flex-shrink:0;}
-
-/* BUTTONS */
 .btn{padding:9px 18px;border-radius:9px;border:none;font-size:.87rem;font-weight:600;cursor:pointer;}
 .btn-p{background:var(--blue);color:#fff;}.btn-p:active{background:var(--blue2);}
 .btn-s{background:var(--border);color:var(--text);}
-.btn-row{display:flex;gap:8px;margin-top:6px;}.btn-row .btn{flex:1;}
-.btn-w{width:100%;}
-
-/* LISTS */
-.row-in{display:flex;gap:8px;margin-bottom:10px;}
-.row-in input{flex:1;}
-.row-in .btn{padding:9px 14px;flex-shrink:0;}
+.btn-row{display:flex;gap:8px;margin-top:6px;}.btn-row .btn{flex:1;}.btn-w{width:100%;}
 .shop-item{display:flex;align-items:center;gap:8px;padding:9px 11px;background:var(--card);border-radius:8px;margin-bottom:5px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
 .shop-item.ck{opacity:.5;}.shop-item.ck .si{text-decoration:line-through;}
 .shop-item input[type=checkbox]{width:18px;height:18px;accent-color:var(--green);flex-shrink:0;}
@@ -135,21 +78,18 @@ textarea{resize:vertical;min-height:65px;}
 .db{background:none;border:none;cursor:pointer;padding:3px 4px;font-size:.85rem;color:var(--red);}
 .note-card{background:var(--card);border-radius:10px;padding:13px;margin-bottom:9px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-left:3px solid var(--orange);position:relative;}
 .note-card h4{font-size:.9rem;font-weight:700;margin-bottom:3px;padding-right:54px;}
-.note-card p{font-size:.82rem;color:var(--muted);white-space:pre-wrap;}
-.nd{font-size:.67rem;color:#bbb;margin-top:5px;}
+.note-card p{font-size:.82rem;color:var(--muted);white-space:pre-wrap;}.nd{font-size:.67rem;color:#bbb;margin-top:5px;}
 .na{position:absolute;top:9px;right:9px;display:flex;gap:3px;}
 .chk-item{display:flex;align-items:flex-start;gap:8px;padding:9px 11px;background:var(--card);border-radius:8px;margin-bottom:5px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
 .cn{background:var(--blue);color:#fff;border-radius:50%;width:21px;height:21px;display:flex;align-items:center;justify-content:center;font-size:.67rem;font-weight:700;flex-shrink:0;margin-top:1px;}
-.chk-item.done .cn{background:var(--green);}
-.chk-item.done .ct{text-decoration:line-through;opacity:.6;}
-.ct-w{flex:1;min-width:0;}
-.ct{font-size:.87rem;font-weight:600;}
-.cn2{font-size:.75rem;color:var(--muted);margin-top:2px;}
+.chk-item.done .cn{background:var(--green);}.chk-item.done .ct-w{text-decoration:line-through;opacity:.6;}
+.ct-w{flex:1;min-width:0;}.ct{font-size:.87rem;font-weight:600;}.cn2{font-size:.75rem;color:var(--muted);margin-top:2px;}
 .chk-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--green);flex-shrink:0;margin-top:2px;}
 .empty{text-align:center;color:var(--muted);padding:28px 16px;font-size:.87rem;}
 .empty .em{font-size:2.2rem;display:block;margin-bottom:7px;}
 .divider{height:1px;background:var(--border);margin:14px 0;}
 .fl{font-size:.82rem;font-weight:700;margin-bottom:10px;color:var(--blue);}
+.pw-err{color:var(--red);font-size:.8rem;margin-bottom:10px;display:none;}
 </style>
 </head>
 <body>
@@ -160,8 +100,6 @@ textarea{resize:vertical;min-height:65px;}
 </div>
 
 <div class="content">
-
-  <!-- KALENDER -->
   <div class="tab active" id="tab-calendar">
     <div class="card">
       <div class="cal-nav">
@@ -177,8 +115,6 @@ textarea{resize:vertical;min-height:65px;}
     </div>
     <div id="upcoming"></div>
   </div>
-
-  <!-- INKÖPSLISTA -->
   <div class="tab" id="tab-shop">
     <div class="sec-t" style="margin-bottom:12px">🛒 Inköpslista</div>
     <div class="card">
@@ -189,8 +125,6 @@ textarea{resize:vertical;min-height:65px;}
     <div id="shop-list"></div>
     <button class="btn btn-s btn-w" style="margin-top:6px" onclick="clearShop()">Rensa ibockade</button>
   </div>
-
-  <!-- CHECKLISTA -->
   <div class="tab" id="tab-check">
     <div class="sec-t" style="margin-bottom:12px">✅ Checklista</div>
     <div class="card">
@@ -201,8 +135,6 @@ textarea{resize:vertical;min-height:65px;}
     <div class="divider"></div>
     <div id="check-list"></div>
   </div>
-
-  <!-- ANTECKNINGAR -->
   <div class="tab" id="tab-notes">
     <div class="sec-t" style="margin-bottom:12px">📝 Anteckningar</div>
     <div class="card">
@@ -213,7 +145,6 @@ textarea{resize:vertical;min-height:65px;}
     <div class="divider"></div>
     <div id="notes-list"></div>
   </div>
-
 </div>
 
 <nav class="nav">
@@ -281,17 +212,19 @@ textarea{resize:vertical;min-height:65px;}
 </div>
 
 <!-- LÖSENORD MODAL -->
-<div class="nov" id="pw-ov">
-  <div class="nbox">
+<div class="cov" id="pw-ov">
+  <div class="cbox">
     <h2>🔐 Wassmans Familjeapp</h2>
     <p>Ange lösenordet för att komma in.</p>
-    <input type="password" id="pw-in" placeholder="Lösenord..." maxlength="50" style="margin-bottom:8px" onkeydown="if(event.key==='Enter')checkPw()">
-    <div id="pw-err" style="color:var(--red);font-size:.8rem;margin-bottom:10px;display:none">❌ Fel lösenord, försök igen.</div>
+    <input type="password" id="pw-in" placeholder="Lösenord..." style="margin-bottom:8px" onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="pw-err" id="pw-err">❌ Fel lösenord, försök igen.</div>
     <button class="btn btn-p btn-w" onclick="checkPw()">Logga in</button>
   </div>
 </div>
-<div class="nov" id="nm-ov">
-  <div class="nbox">
+
+<!-- NAMN MODAL -->
+<div class="cov" id="nm-ov">
+  <div class="cbox">
     <h2>👋 Välkommen!</h2>
     <p>Vad heter du? Ditt namn visas när du lägger till saker.</p>
     <input type="text" id="nm-in" placeholder="Ditt namn..." maxlength="30" style="margin-bottom:14px">
@@ -310,21 +243,17 @@ textarea{resize:vertical;min-height:65px;}
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase,ref,onValue,push,remove,set,update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
-const PW = 'Kre@tivtlösenord23';
-let unlocked = localStorage.getItem('wass_pw') === PW;
-if(!unlocked) document.getElementById('pw-ov').classList.add('open');
-
+// ── lösenord ──
+const PW='Kre@tivtlösenord23';
+if(localStorage.getItem('wass_pw')!==PW) document.getElementById('pw-ov').classList.add('open');
 window.checkPw=()=>{
   const v=document.getElementById('pw-in').value;
-  if(v===PW){
-    localStorage.setItem('wass_pw',PW);
-    document.getElementById('pw-ov').classList.remove('open');
-    unlocked=true;
-  } else {
-    document.getElementById('pw-err').style.display='block';
-    document.getElementById('pw-in').value='';
-  }
+  if(v===PW){localStorage.setItem('wass_pw',PW);document.getElementById('pw-ov').classList.remove('open');}
+  else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-in').value='';}
 };
+
+// ── firebase ──
+const db=getDatabase(initializeApp({
   apiKey:"AIzaSyB-uYeQ0z86IsiDnvzBQsvWbrXvdFuXn2s",
   authDomain:"wassmans.firebaseapp.com",projectId:"wassmans",
   storageBucket:"wassmans.firebasestorage.app",messagingSenderId:"430448265249",
@@ -336,37 +265,13 @@ window.checkPw=()=>{
 const p2=n=>String(n).padStart(2,'0');
 const dk=(y,m,d)=>`${y}-${p2(m+1)}-${p2(d)}`;
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-function wn(d){
-  const u=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));
-  const day=u.getUTCDay()||7; u.setUTCDate(u.getUTCDate()+4-day);
-  return Math.ceil((((u-new Date(Date.UTC(u.getUTCFullYear(),0,1)))/86400000)+1)/7);
-}
+function wn(d){const u=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const day=u.getUTCDay()||7;u.setUTCDate(u.getUTCDate()+4-day);return Math.ceil((((u-new Date(Date.UTC(u.getUTCFullYear(),0,1)))/86400000)+1)/7);}
 const MO=['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 const DA=['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
 const FH={'01-01':'Nyårsdagen','01-06':'Trettondedag jul','05-01':'Första maj','06-06':'Nationaldagen','12-24':'Julafton','12-25':'Juldagen','12-26':'Annandag jul','12-31':'Nyårsafton'};
 
-function easter(y){
-  const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,
-    f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,
-    i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
-    mo=Math.floor((h+l-7*m+114)/31),dy=((h+l-7*m+114)%31)+1;
-  return new Date(y,mo-1,dy);
-}
-function hols(y){
-  const h={};
-  Object.entries(FH).forEach(([k,v])=>h[`${y}-${k}`]=v);
-  const e=easter(y);
-  const add=(b,o,n)=>{const d=new Date(b);d.setDate(d.getDate()+o);h[`${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`]=n;};
-  add(e,-3,'Skärtorsdagen');add(e,-2,'Långfredagen');add(e,-1,'Påskafton');
-  add(e,0,'Påskdagen');add(e,1,'Annandag påsk');add(e,39,'Kristi himmelsfärd');add(e,49,'Pingstdagen');
-  const ms=new Date(y,5,19);while(ms.getDay()!==5)ms.setDate(ms.getDate()+1);
-  const ma=new Date(ms);ma.setDate(ms.getDate()-1);
-  h[`${y}-${p2(ma.getMonth()+1)}-${p2(ma.getDate())}`]='Midsommarafton';
-  h[`${y}-${p2(ms.getMonth()+1)}-${p2(ms.getDate())}`]='Midsommardagen';
-  const ah=new Date(y,9,31);while(ah.getDay()!==6)ah.setDate(ah.getDate()+1);
-  h[`${ah.getFullYear()}-${p2(ah.getMonth()+1)}-${p2(ah.getDate())}`]='Alla helgons dag';
-  return h;
-}
+function easter(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),dy=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,dy);}
+function hols(y){const h={};Object.entries(FH).forEach(([k,v])=>h[`${y}-${k}`]=v);const e=easter(y);const add=(b,o,n)=>{const d=new Date(b);d.setDate(d.getDate()+o);h[`${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`]=n;};add(e,-3,'Skärtorsdagen');add(e,-2,'Långfredagen');add(e,-1,'Påskafton');add(e,0,'Påskdagen');add(e,1,'Annandag påsk');add(e,39,'Kristi himmelsfärd');add(e,49,'Pingstdagen');const ms=new Date(y,5,19);while(ms.getDay()!==5)ms.setDate(ms.getDate()+1);const ma=new Date(ms);ma.setDate(ms.getDate()-1);h[`${y}-${p2(ma.getMonth()+1)}-${p2(ma.getDate())}`]='Midsommarafton';h[`${y}-${p2(ms.getMonth()+1)}-${p2(ms.getDate())}`]='Midsommardagen';const ah=new Date(y,9,31);while(ah.getDay()!==6)ah.setDate(ah.getDate()+1);h[`${ah.getFullYear()}-${p2(ah.getMonth()+1)}-${p2(ah.getDate())}`]='Alla helgons dag';return h;}
 function isRed(d,h){return d.getDay()===0||!!h[dk(d.getFullYear(),d.getMonth(),d.getDate())];}
 
 // ── state ──
@@ -377,14 +282,9 @@ let edEvKey=null,edEvId=null,edCtx=null;
 let userName=localStorage.getItem('wass_name')||'';
 
 document.getElementById('hdr-date').textContent=today.toLocaleDateString('sv-SE',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-if(!userName)document.getElementById('nm-ov').classList.add('open');
+if(!userName&&localStorage.getItem('wass_pw')===PW) document.getElementById('nm-ov').classList.add('open');
 
-// ── name ──
-window.saveName=()=>{
-  const n=document.getElementById('nm-in').value.trim();if(!n)return;
-  userName=n;localStorage.setItem('wass_name',n);
-  document.getElementById('nm-ov').classList.remove('open');
-};
+window.saveName=()=>{const n=document.getElementById('nm-in').value.trim();if(!n)return;userName=n;localStorage.setItem('wass_name',n);document.getElementById('nm-ov').classList.remove('open');};
 
 // ── calendar ──
 function renderCal(){
@@ -408,18 +308,8 @@ function renderCal(){
     const isTd=cur&&date.getDate()===today.getDate()&&curM===today.getMonth()&&curY===today.getFullYear();
     const red=isRed(date,hols(date.getFullYear()));
     const hasEv=cur&&calEvs[key]&&Object.keys(calEvs[key]).length>0;
-    const hasRec=cur&&!hasEv&&Object.entries(calEvs).some(([k,es])=>{
-      const[ey,em,ed]=k.split('-').map(Number);
-      return Object.values(es).some(ev=>{
-        const b=new Date(ey,em-1,ed);
-        if(ev.recurring)return date.getMonth()===em-1&&date.getDate()===ed;
-        if(ev.recurWeekly){const df=Math.round((date-b)/86400000);return df>=0&&df%7===0;}
-        if(ev.recurBiweekly){const df=Math.round((date-b)/86400000);return df>=0&&df%14===0;}
-        return false;
-      });
-    });
-    html+=`<div class="cd${cur?'':' ot'}${(hasEv||hasRec)?' he':''}"${cur?` onclick="openEv('${key}')"`:''}>`
-         +`<span class="${isTd?'dn td':`dn${red?' r':''}`}">${date.getDate()}</span></div>`;
+    const hasRec=cur&&!hasEv&&Object.entries(calEvs).some(([k,es])=>{const[ey,em,ed]=k.split('-').map(Number);return Object.values(es).some(ev=>{const b=new Date(ey,em-1,ed);if(ev.recurring)return date.getMonth()===em-1&&date.getDate()===ed;if(ev.recurWeekly){const df=Math.round((date-b)/86400000);return df>=0&&df%7===0;}if(ev.recurBiweekly){const df=Math.round((date-b)/86400000);return df>=0&&df%14===0;}return false;});});
+    html+=`<div class="cd${cur?'':' ot'}${(hasEv||hasRec)?' he':''}"${cur?` onclick="openEv('${key}')"`:''}><span class="${isTd?'dn td':`dn${red?' r':''}`}">${date.getDate()}</span></div>`;
   }
   html+='</div>';
   document.getElementById('cal-grid').innerHTML=html;
@@ -431,18 +321,7 @@ function renderUpcoming(){
   const el=document.getElementById('upcoming');
   const now=new Date();now.setHours(0,0,0,0);
   const items=[];
-  Object.entries(calEvs).forEach(([key,es])=>{
-    const[y,m,d]=key.split('-').map(Number);
-    Object.entries(es).forEach(([id,ev])=>{
-      const b=new Date(y,m-1,d);
-      if(ev.recurWeekly||ev.recurBiweekly){
-        const s=ev.recurWeekly?7:14;let c=new Date(b);while(c<now)c.setDate(c.getDate()+s);
-        for(let i=0;i<6;i++){items.push({date:new Date(c),ev});c.setDate(c.getDate()+s);}
-      } else if(ev.recurring){
-        [curY,curY+1].forEach(yr=>{const r=new Date(yr,m-1,d);if(r>=now)items.push({date:r,ev});});
-      } else if(b>=now)items.push({date:b,ev});
-    });
-  });
+  Object.entries(calEvs).forEach(([key,es])=>{const[y,m,d]=key.split('-').map(Number);Object.entries(es).forEach(([id,ev])=>{const b=new Date(y,m-1,d);if(ev.recurWeekly||ev.recurBiweekly){const s=ev.recurWeekly?7:14;let c=new Date(b);while(c<now)c.setDate(c.getDate()+s);for(let i=0;i<6;i++){items.push({date:new Date(c),ev});c.setDate(c.getDate()+s);}}else if(ev.recurring){[curY,curY+1].forEach(yr=>{const r=new Date(yr,m-1,d);if(r>=now)items.push({date:r,ev});});}else if(b>=now)items.push({date:b,ev});});});
   items.sort((a,b)=>a.date-b.date);
   const seen=new Set();
   const uniq=items.filter(u=>{const k=`${u.ev.title}-${u.date.toDateString()}`;if(seen.has(k))return false;seen.add(k);return true;});
@@ -458,25 +337,8 @@ function renderUpcoming(){
 }
 
 function checkNotifs(evs){
-  const now=new Date();now.setHours(0,0,0,0);
-  const al=[];
-  Object.entries(evs).forEach(([key,em])=>{
-    const[y,m,d]=key.split('-').map(Number);
-    Object.values(em).forEach(ev=>{
-      const dates=[],b=new Date(y,m-1,d);
-      if(ev.recurWeekly||ev.recurBiweekly){const s=ev.recurWeekly?7:14;let c=new Date(b);while(c<now)c.setDate(c.getDate()+s);for(let i=0;i<2;i++){dates.push(new Date(c));c.setDate(c.getDate()+s);}}
-      else if(ev.recurring){[now.getFullYear(),now.getFullYear()+1].forEach(yr=>dates.push(new Date(yr,m-1,d)));}
-      else dates.push(b);
-      dates.forEach(date=>{
-        const df=Math.round((date-now)/86400000);
-        if(ev.alarm14&&df===14)al.push(`📅 Om 2 veckor: ${ev.title}`);
-        if(ev.alarm7&&df===7)al.push(`📅 Om 1 vecka: ${ev.title}`);
-        if(ev.alarm3&&df===3)al.push(`📅 Om 3 dagar: ${ev.title}`);
-        if(ev.alarm1&&df===1)al.push(`📅 Imorgon: ${ev.title}`);
-        if(df===0)al.push(`🎉 Idag: ${ev.title}`);
-      });
-    });
-  });
+  const now=new Date();now.setHours(0,0,0,0);const al=[];
+  Object.entries(evs).forEach(([key,em])=>{const[y,m,d]=key.split('-').map(Number);Object.values(em).forEach(ev=>{const dates=[],b=new Date(y,m-1,d);if(ev.recurWeekly||ev.recurBiweekly){const s=ev.recurWeekly?7:14;let c=new Date(b);while(c<now)c.setDate(c.getDate()+s);for(let i=0;i<2;i++){dates.push(new Date(c));c.setDate(c.getDate()+s);}}else if(ev.recurring){[now.getFullYear(),now.getFullYear()+1].forEach(yr=>dates.push(new Date(yr,m-1,d)));}else dates.push(b);dates.forEach(date=>{const df=Math.round((date-now)/86400000);if(ev.alarm14&&df===14)al.push(`📅 Om 2 veckor: ${ev.title}`);if(ev.alarm7&&df===7)al.push(`📅 Om 1 vecka: ${ev.title}`);if(ev.alarm3&&df===3)al.push(`📅 Om 3 dagar: ${ev.title}`);if(ev.alarm1&&df===1)al.push(`📅 Imorgon: ${ev.title}`);if(df===0)al.push(`🎉 Idag: ${ev.title}`);});});});
   const u=[...new Set(al)];
   if(u.length){document.getElementById('notif-body').innerHTML=u.map(a=>`<div class="ni">${esc(a)}</div>`).join('');document.getElementById('notif').classList.add('show');}
 }
@@ -485,40 +347,21 @@ onValue(ref(db,'events'),snap=>{calEvs=snap.val()||{};renderCal();checkNotifs(ca
 
 // ── event modal ──
 window.togAD=()=>{document.getElementById('ev-tr').style.display=document.getElementById('ev-ad').checked?'none':'flex';};
-
-function resetEv(){
-  document.getElementById('ev-ti').value='';document.getElementById('ev-no').value='';
-  document.getElementById('ev-ad').checked=true;document.getElementById('ev-tr').style.display='none';
-  document.getElementById('ev-ts').value='08:00';document.getElementById('ev-te').value='09:00';
-  ['a14','a7','a3','a1'].forEach(i=>document.getElementById(i).checked=false);
-  document.querySelector('input[name="rec"][value="none"]').checked=true;
-}
-
+function resetEv(){document.getElementById('ev-ti').value='';document.getElementById('ev-no').value='';document.getElementById('ev-ad').checked=true;document.getElementById('ev-tr').style.display='none';document.getElementById('ev-ts').value='08:00';document.getElementById('ev-te').value='09:00';['a14','a7','a3','a1'].forEach(i=>document.getElementById(i).checked=false);document.querySelector('input[name="rec"][value="none"]').checked=true;}
 window.openEv=key=>{
   selDate=key;edEvKey=null;edEvId=null;
   document.getElementById('ev-fl').textContent='➕ Lägg till händelse';
   document.getElementById('ev-sb').textContent='Spara händelse';
-  const[y,m,d]=key.split('-').map(Number);const date=new Date(y,m-1,d);
-  const hn=hols(y)[key];
+  const[y,m,d]=key.split('-').map(Number);const date=new Date(y,m-1,d);const hn=hols(y)[key];
   document.getElementById('ev-mh').textContent=date.toLocaleDateString('sv-SE',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   document.getElementById('ev-ms').innerHTML=`Vecka ${wn(date)}${hn?` &nbsp;<span class="hbadge">🔴 ${hn}</span>`:''}`;
-  resetEv();renderEvList(key);
-  document.getElementById('ev-ov').classList.add('open');
-  setTimeout(()=>document.querySelectorAll('#ev-ov input,#ev-ov textarea').forEach(inp=>{
-    inp.addEventListener('focus',()=>setTimeout(()=>inp.scrollIntoView({behavior:'smooth',block:'center'}),300));
-  }),100);
+  resetEv();renderEvList(key);document.getElementById('ev-ov').classList.add('open');
+  setTimeout(()=>document.querySelectorAll('#ev-ov input,#ev-ov textarea').forEach(inp=>{inp.addEventListener('focus',()=>setTimeout(()=>inp.scrollIntoView({behavior:'smooth',block:'center'}),300));}),100);
 };
-
 function renderEvList(key){
-  const es=calEvs[key]||{};const el=document.getElementById('ev-list');
-  const entries=Object.entries(es);
+  const es=calEvs[key]||{};const el=document.getElementById('ev-list');const entries=Object.entries(es);
   if(!entries.length){el.innerHTML='<div style="color:#aaa;font-size:.82rem;margin-bottom:6px">Inga händelser denna dag</div>';return;}
-  const sorted=entries.map(([id,ev])=>({id,ev})).sort((a,b)=>{
-    const aa=a.ev.allDay!==false,ba=b.ev.allDay!==false;
-    if(aa&&!ba)return -1;if(!aa&&ba)return 1;
-    if(!aa&&!ba)return(a.ev.startTime||'').localeCompare(b.ev.startTime||'');
-    return 0;
-  });
+  const sorted=entries.map(([id,ev])=>({id,ev})).sort((a,b)=>{const aa=a.ev.allDay!==false,ba=b.ev.allDay!==false;if(aa&&!ba)return -1;if(!aa&&ba)return 1;if(!aa&&!ba)return(a.ev.startTime||'').localeCompare(b.ev.startTime||'');return 0;});
   el.innerHTML=sorted.map(({id,ev})=>{
     const al=[];if(ev.alarm14)al.push('2v');if(ev.alarm7)al.push('1v');if(ev.alarm3)al.push('3d');if(ev.alarm1)al.push('1d');
     const tag=ev.recurring?'<span class="rbadge">🎂 Varje år</span>':ev.recurWeekly?'<span class="rbadge">🔁 Varje vecka</span>':ev.recurBiweekly?'<span class="rbadge">🔁 Varannan vecka</span>':'';
@@ -526,52 +369,30 @@ function renderEvList(key){
     return`<div class="ev-item"><div class="ev-act"><button class="icon-btn eb" onclick="startEdEv('${key}','${id}')">✏️</button><button class="icon-btn db" onclick="delEv('${key}','${id}')">🗑</button></div><div class="ev-t">${esc(ev.title)} ${tag}</div><div class="ev-m">${ts}${ev.addedBy?'👤 '+esc(ev.addedBy):''}${ev.note?' · '+esc(ev.note):''}</div>${al.length?`<div class="ev-a">${al.map(a=>`<span class="abadge">⏰${a}</span>`).join('')}</div>`:''}</div>`;
   }).join('');
 }
-
 window.closeEv=()=>{document.getElementById('ev-ov').classList.remove('open');edEvKey=null;edEvId=null;};
-
 window.startEdEv=(key,id)=>{
   edEvKey=key;edEvId=id;const ev=calEvs[key][id];
-  document.getElementById('ev-fl').textContent='✏️ Redigera händelse';
-  document.getElementById('ev-sb').textContent='Spara ändringar';
+  document.getElementById('ev-fl').textContent='✏️ Redigera händelse';document.getElementById('ev-sb').textContent='Spara ändringar';
   document.getElementById('ev-ti').value=ev.title||'';document.getElementById('ev-no').value=ev.note||'';
-  const ad=ev.allDay!==false;document.getElementById('ev-ad').checked=ad;
-  document.getElementById('ev-tr').style.display=ad?'none':'flex';
+  const ad=ev.allDay!==false;document.getElementById('ev-ad').checked=ad;document.getElementById('ev-tr').style.display=ad?'none':'flex';
   document.getElementById('ev-ts').value=ev.startTime||'08:00';document.getElementById('ev-te').value=ev.endTime||'09:00';
-  document.getElementById('a14').checked=!!ev.alarm14;document.getElementById('a7').checked=!!ev.alarm7;
-  document.getElementById('a3').checked=!!ev.alarm3;document.getElementById('a1').checked=!!ev.alarm1;
+  document.getElementById('a14').checked=!!ev.alarm14;document.getElementById('a7').checked=!!ev.alarm7;document.getElementById('a3').checked=!!ev.alarm3;document.getElementById('a1').checked=!!ev.alarm1;
   const rv=ev.recurring?'yearly':ev.recurWeekly?'weekly':ev.recurBiweekly?'biweekly':'none';
   document.querySelector(`input[name="rec"][value="${rv}"]`).checked=true;
   setTimeout(()=>document.getElementById('ev-ti').scrollIntoView({behavior:'smooth',block:'center'}),100);
 };
-
 window.saveEv=()=>{
   const title=document.getElementById('ev-ti').value.trim();if(!title){alert('Ange en titel!');return;}
-  const ad=document.getElementById('ev-ad').checked;
-  const rv=document.querySelector('input[name="rec"]:checked').value;
+  const ad=document.getElementById('ev-ad').checked;const rv=document.querySelector('input[name="rec"]:checked').value;
   const key=edEvKey||selDate;const[y,m,d]=key.split('-').map(Number);
-  const data={title,note:document.getElementById('ev-no').value.trim(),allDay:ad,
-    startTime:ad?'':document.getElementById('ev-ts').value,endTime:ad?'':document.getElementById('ev-te').value,
-    alarm14:document.getElementById('a14').checked,alarm7:document.getElementById('a7').checked,
-    alarm3:document.getElementById('a3').checked,alarm1:document.getElementById('a1').checked,
-    recurring:rv==='yearly',recurWeekly:rv==='weekly',recurBiweekly:rv==='biweekly',
-    recurMonth:m-1,recurDay:d,startDate:key,addedBy:userName||'',created:Date.now()};
-  if(edEvId)set(ref(db,`events/${key}/${edEvId}`),data);
-  else push(ref(db,`events/${selDate}`),data);
-  resetEv();edEvKey=null;edEvId=null;
-  document.getElementById('ev-fl').textContent='➕ Lägg till händelse';
-  document.getElementById('ev-sb').textContent='Spara händelse';
+  const data={title,note:document.getElementById('ev-no').value.trim(),allDay:ad,startTime:ad?'':document.getElementById('ev-ts').value,endTime:ad?'':document.getElementById('ev-te').value,alarm14:document.getElementById('a14').checked,alarm7:document.getElementById('a7').checked,alarm3:document.getElementById('a3').checked,alarm1:document.getElementById('a1').checked,recurring:rv==='yearly',recurWeekly:rv==='weekly',recurBiweekly:rv==='biweekly',recurMonth:m-1,recurDay:d,startDate:key,addedBy:userName||'',created:Date.now()};
+  if(edEvId)set(ref(db,`events/${key}/${edEvId}`),data);else push(ref(db,`events/${selDate}`),data);
+  resetEv();edEvKey=null;edEvId=null;document.getElementById('ev-fl').textContent='➕ Lägg till händelse';document.getElementById('ev-sb').textContent='Spara händelse';
 };
-
 window.delEv=(key,id)=>{
-  const ev=calEvs[key]&&calEvs[key][id];
-  const isRec=ev&&(ev.recurring||ev.recurWeekly||ev.recurBiweekly);
-  if(isRec){
-    if(confirm('Ta bort hela serien (OK) eller bara denna dag (Avbryt)?')){
-      Object.entries(calEvs).forEach(([k,es])=>{
-        Object.entries(es).forEach(([eid,e])=>{if(e.title===ev.title&&e.startDate===ev.startDate)remove(ref(db,`events/${k}/${eid}`));});
-      });
-    } else remove(ref(db,`events/${key}/${id}`));
-  } else if(confirm('Ta bort händelsen?'))remove(ref(db,`events/${key}/${id}`));
+  const ev=calEvs[key]&&calEvs[key][id];const isRec=ev&&(ev.recurring||ev.recurWeekly||ev.recurBiweekly);
+  if(isRec){if(confirm('Ta bort hela serien (OK) eller bara denna dag (Avbryt)?')){Object.entries(calEvs).forEach(([k,es])=>{Object.entries(es).forEach(([eid,e])=>{if(e.title===ev.title&&e.startDate===ev.startDate)remove(ref(db,`events/${k}/${eid}`));});});}else remove(ref(db,`events/${key}/${id}`));}
+  else if(confirm('Ta bort händelsen?'))remove(ref(db,`events/${key}/${id}`));
 };
 
 // ── edit modal ──
@@ -583,51 +404,19 @@ window.saveEd=()=>{
   else if(type==='chk'){const v=document.getElementById('ed-f1').value.trim();if(!v)return;update(ref(db,`checklist/${id}`),{title:v,note:document.getElementById('ed-f2').value.trim()});}
   closeEd();
 };
-function openEd(type,id,fields,title){
-  edCtx={type,id};
-  document.getElementById('ed-mh').textContent=title;
-  document.getElementById('ed-fields').innerHTML=fields;
-  document.getElementById('ed-ov').classList.add('open');
-}
+function openEd(type,id,fields,title){edCtx={type,id};document.getElementById('ed-mh').textContent=title;document.getElementById('ed-fields').innerHTML=fields;document.getElementById('ed-ov').classList.add('open');}
 
-// ── move helper ──
-function moveItem(path,id,dir,all){
-  const s=Object.entries(all).sort((a,b)=>(a[1].order||0)-(b[1].order||0));
-  const i=s.findIndex(([k])=>k===id),j=i+dir;
-  if(j<0||j>=s.length)return;
-  const oa=s[i][1].order||i,ob=s[j][1].order||j;
-  set(ref(db,`${path}/${s[i][0]}/order`),ob);
-  set(ref(db,`${path}/${s[j][0]}/order`),oa);
-}
+// ── move ──
+function moveItem(path,id,dir,all){const s=Object.entries(all).sort((a,b)=>(a[1].order||0)-(b[1].order||0));const i=s.findIndex(([k])=>k===id),j=i+dir;if(j<0||j>=s.length)return;const oa=s[i][1].order||i,ob=s[j][1].order||j;set(ref(db,`${path}/${s[i][0]}/order`),ob);set(ref(db,`${path}/${s[j][0]}/order`),oa);}
 
 // ── shopping ──
 onValue(ref(db,'shopping'),snap=>{
-  shopItems=snap.val()||{};
-  const el=document.getElementById('shop-list');
+  shopItems=snap.val()||{};const el=document.getElementById('shop-list');
   const s=Object.entries(shopItems).sort((a,b)=>(a[1].order||0)-(b[1].order||0));
   if(!s.length){el.innerHTML='<div class="empty"><span class="em">🛒</span>Inköpslistan är tom</div>';return;}
-  el.innerHTML=s.map(([id,it],i)=>`
-    <div class="shop-item${it.checked?' ck':''}">
-      <input type="checkbox" ${it.checked?'checked':''} onchange="togShop('${id}',${!it.checked})">
-      <div style="flex:1;min-width:0">
-        <div class="si">${esc(it.text)}</div>
-        ${it.desc?`<div class="im">📝 ${esc(it.desc)}</div>`:''}
-        ${it.addedBy?`<div class="im">👤 ${esc(it.addedBy)}</div>`:''}
-      </div>
-      <div class="ia">
-        <button class="mb" onclick="mvShop('${id}',-1)" ${i===0?'disabled':''}">↑</button>
-        <button class="mb" onclick="mvShop('${id}',1)" ${i===s.length-1?'disabled':''}">↓</button>
-        <button class="eb" onclick="edShop('${id}','${esc(it.text)}','${esc(it.desc||'')}')">✏️</button>
-        <button class="db" onclick="delShop('${id}')">✕</button>
-      </div>
-    </div>`).join('');
+  el.innerHTML=s.map(([id,it],i)=>`<div class="shop-item${it.checked?' ck':''}"><input type="checkbox" ${it.checked?'checked':''} onchange="togShop('${id}',${!it.checked})"><div style="flex:1;min-width:0"><div class="si">${esc(it.text)}</div>${it.desc?`<div class="im">📝 ${esc(it.desc)}</div>`:''}${it.addedBy?`<div class="im">👤 ${esc(it.addedBy)}</div>`:''}</div><div class="ia"><button class="mb" onclick="mvShop('${id}',-1)" ${i===0?'disabled':''}">↑</button><button class="mb" onclick="mvShop('${id}',1)" ${i===s.length-1?'disabled':''}">↓</button><button class="eb" onclick="edShop('${id}','${esc(it.text)}','${esc(it.desc||'')}')">✏️</button><button class="db" onclick="delShop('${id}')">✕</button></div></div>`).join('');
 });
-window.addShop=()=>{
-  const v=document.getElementById('sh-in').value.trim();if(!v)return;
-  const mo=Object.values(shopItems).length?Math.max(...Object.values(shopItems).map(i=>i.order||0)):0;
-  push(ref(db,'shopping'),{text:v,desc:document.getElementById('sh-desc').value.trim(),checked:false,order:mo+1,addedBy:userName||'',created:Date.now()});
-  document.getElementById('sh-in').value='';document.getElementById('sh-desc').value='';
-};
+window.addShop=()=>{const v=document.getElementById('sh-in').value.trim();if(!v)return;const mo=Object.values(shopItems).length?Math.max(...Object.values(shopItems).map(i=>i.order||0)):0;push(ref(db,'shopping'),{text:v,desc:document.getElementById('sh-desc').value.trim(),checked:false,order:mo+1,addedBy:userName||'',created:Date.now()});document.getElementById('sh-in').value='';document.getElementById('sh-desc').value='';};
 window.togShop=(id,v)=>set(ref(db,`shopping/${id}/checked`),v);
 window.delShop=(id)=>remove(ref(db,`shopping/${id}`));
 window.clearShop=()=>onValue(ref(db,'shopping'),snap=>{Object.entries(snap.val()||{}).forEach(([id,it])=>{if(it.checked)remove(ref(db,`shopping/${id}`));});},{onlyOnce:true});
@@ -636,20 +425,11 @@ window.edShop=(id,t,d)=>openEd('shop',id,`<div class="fg"><label>Vara</label><in
 
 // ── notes ──
 onValue(ref(db,'notes'),snap=>{
-  const notes=snap.val()||{};const el=document.getElementById('notes-list');
-  const keys=Object.keys(notes).reverse();
+  const notes=snap.val()||{};const el=document.getElementById('notes-list');const keys=Object.keys(notes).reverse();
   if(!keys.length){el.innerHTML='<div class="empty"><span class="em">📝</span>Inga anteckningar</div>';return;}
-  el.innerHTML=keys.map(id=>{
-    const n=notes[id];
-    return`<div class="note-card"><div class="na"><button class="eb" onclick="edNote('${id}','${esc(n.title||'')}','${esc((n.text||'').replace(/\n/g,'\\n'))}')">✏️</button><button class="db" onclick="delNote('${id}')">🗑</button></div><h4>${esc(n.title||'(ingen rubrik)')}</h4><p>${esc(n.text||'')}</p><div class="nd">${new Date(n.created).toLocaleDateString('sv-SE')}${n.addedBy?' · 👤 '+esc(n.addedBy):''}</div></div>`;
-  }).join('');
+  el.innerHTML=keys.map(id=>{const n=notes[id];return`<div class="note-card"><div class="na"><button class="eb" onclick="edNote('${id}','${esc(n.title||'')}','${esc((n.text||'').replace(/\n/g,'\\n'))}')">✏️</button><button class="db" onclick="delNote('${id}')">🗑</button></div><h4>${esc(n.title||'(ingen rubrik)')}</h4><p>${esc(n.text||'')}</p><div class="nd">${new Date(n.created).toLocaleDateString('sv-SE')}${n.addedBy?' · 👤 '+esc(n.addedBy):''}</div></div>`;}).join('');
 });
-window.addNote=()=>{
-  const t=document.getElementById('no-title').value.trim(),x=document.getElementById('no-text').value.trim();
-  if(!t&&!x)return;
-  push(ref(db,'notes'),{title:t,text:x,addedBy:userName||'',created:Date.now()});
-  document.getElementById('no-title').value='';document.getElementById('no-text').value='';
-};
+window.addNote=()=>{const t=document.getElementById('no-title').value.trim(),x=document.getElementById('no-text').value.trim();if(!t&&!x)return;push(ref(db,'notes'),{title:t,text:x,addedBy:userName||'',created:Date.now()});document.getElementById('no-title').value='';document.getElementById('no-text').value='';};
 window.delNote=(id)=>{if(confirm('Ta bort anteckning?'))remove(ref(db,`notes/${id}`));};
 window.edNote=(id,t,x)=>openEd('note',id,`<div class="fg"><label>Rubrik</label><input type="text" id="ed-f1" value="${t}"></div><div class="fg"><label>Text</label><textarea id="ed-f2">${x.replace(/\\n/g,'\n')}</textarea></div>`,'✏️ Redigera anteckning');
 
@@ -658,73 +438,19 @@ onValue(ref(db,'checklist'),snap=>{
   chkItems=snap.val()||{};const el=document.getElementById('check-list');
   const s=Object.entries(chkItems).sort((a,b)=>(a[1].order||0)-(b[1].order||0));
   if(!s.length){el.innerHTML='<div class="empty"><span class="em">✅</span>Checklistan är tom</div>';return;}
-  el.innerHTML=s.map(([id,it],i)=>`
-    <div class="chk-item${it.done?' done':''}">
-      <input type="checkbox" ${it.done?'checked':''} onchange="togChk('${id}',${!it.done})">
-      <div class="cn">${i+1}</div>
-      <div class="ct-w">
-        <div class="ct">${esc(it.title)}</div>
-        ${it.note?`<div class="cn2">${esc(it.note)}</div>`:''}
-        <div class="im">${it.addedBy?'👤 '+esc(it.addedBy):''}</div>
-      </div>
-      <div class="ia">
-        <button class="mb" onclick="mvChk('${id}',-1)" ${i===0?'disabled':''}">↑</button>
-        <button class="mb" onclick="mvChk('${id}',1)" ${i===s.length-1?'disabled':''}">↓</button>
-        <button class="eb" onclick="edChk('${id}','${esc(it.title)}','${esc(it.note||'')}')">✏️</button>
-        <button class="db" onclick="delChk('${id}')">✕</button>
-      </div>
-    </div>`).join('');
+  el.innerHTML=s.map(([id,it],i)=>`<div class="chk-item${it.done?' done':''}"><input type="checkbox" ${it.done?'checked':''} onchange="togChk('${id}',${!it.done})"><div class="cn">${i+1}</div><div class="ct-w"><div class="ct">${esc(it.title)}</div>${it.note?`<div class="cn2">${esc(it.note)}</div>`:''}${it.addedBy?`<div class="im">👤 ${esc(it.addedBy)}</div>`:''}</div><div class="ia"><button class="mb" onclick="mvChk('${id}',-1)" ${i===0?'disabled':''}">↑</button><button class="mb" onclick="mvChk('${id}',1)" ${i===s.length-1?'disabled':''}">↓</button><button class="eb" onclick="edChk('${id}','${esc(it.title)}','${esc(it.note||'')}')">✏️</button><button class="db" onclick="delChk('${id}')">✕</button></div></div>`).join('');
 });
-window.addChk=()=>{
-  const t=document.getElementById('ck-in').value.trim();if(!t)return;
-  const mo=Object.values(chkItems).length?Math.max(...Object.values(chkItems).map(i=>i.order||0)):0;
-  push(ref(db,'checklist'),{title:t,note:document.getElementById('ck-note').value.trim(),done:false,order:mo+1,addedBy:userName||'',created:Date.now()});
-  document.getElementById('ck-in').value='';document.getElementById('ck-note').value='';
-};
+window.addChk=()=>{const t=document.getElementById('ck-in').value.trim();if(!t)return;const mo=Object.values(chkItems).length?Math.max(...Object.values(chkItems).map(i=>i.order||0)):0;push(ref(db,'checklist'),{title:t,note:document.getElementById('ck-note').value.trim(),done:false,order:mo+1,addedBy:userName||'',created:Date.now()});document.getElementById('ck-in').value='';document.getElementById('ck-note').value='';};
 window.togChk=(id,v)=>set(ref(db,`checklist/${id}/done`),v);
 window.delChk=(id)=>remove(ref(db,`checklist/${id}`));
 window.mvChk=(id,d)=>moveItem('checklist',id,d,chkItems);
 window.edChk=(id,t,n)=>openEd('chk',id,`<div class="fg"><label>Punkt</label><input type="text" id="ed-f1" value="${t}"></div><div class="fg"><label>Anteckning</label><input type="text" id="ed-f2" value="${n}"></div>`,'✏️ Redigera punkt');
 
 // ── ical ──
-window.exportICal=()=>{
-  const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Wassmans//SV','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
-  const n=new Date();
-  const st=`${n.getFullYear()}${p2(n.getMonth()+1)}${p2(n.getDate())}T${p2(n.getHours())}${p2(n.getMinutes())}${p2(n.getSeconds())}Z`;
-  const fd=d=>`${d.getFullYear()}${p2(d.getMonth()+1)}${p2(d.getDate())}`;
-  Object.entries(calEvs).forEach(([key,es])=>{
-    const[y,m,d]=key.split('-').map(Number);const b=new Date(y,m-1,d);
-    Object.entries(es).forEach(([id,ev])=>{
-      const ae=(date,extra=[])=>{
-        L.push('BEGIN:VEVENT',`UID:${id}-${fd(date)}@wassmans`,`DTSTAMP:${st}`);
-        if(ev.allDay===false&&ev.startTime){L.push(`DTSTART:${fd(date)}T${ev.startTime.replace(':','')}00`,`DTEND:${fd(date)}T${(ev.endTime||ev.startTime).replace(':','')}00`);}
-        else{L.push(`DTSTART;VALUE=DATE:${fd(date)}`,`DTEND;VALUE=DATE:${fd(new Date(date.getFullYear(),date.getMonth(),date.getDate()+1))}`);}
-        L.push(`SUMMARY:${ev.title}`);if(ev.note)L.push(`DESCRIPTION:${ev.note}`);
-        extra.forEach(l=>L.push(l));
-        if(ev.alarm1)L.push('BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY',`DESCRIPTION:Imorgon: ${ev.title}`,'END:VALARM');
-        if(ev.alarm3)L.push('BEGIN:VALARM','TRIGGER:-P3D','ACTION:DISPLAY',`DESCRIPTION:Om 3 dagar: ${ev.title}`,'END:VALARM');
-        if(ev.alarm7)L.push('BEGIN:VALARM','TRIGGER:-P7D','ACTION:DISPLAY',`DESCRIPTION:Om 1 vecka: ${ev.title}`,'END:VALARM');
-        if(ev.alarm14)L.push('BEGIN:VALARM','TRIGGER:-P14D','ACTION:DISPLAY',`DESCRIPTION:Om 2 veckor: ${ev.title}`,'END:VALARM');
-        L.push('END:VEVENT');
-      };
-      if(ev.recurring)ae(b,['RRULE:FREQ=YEARLY']);
-      else if(ev.recurWeekly)ae(b,['RRULE:FREQ=WEEKLY']);
-      else if(ev.recurBiweekly)ae(b,['RRULE:FREQ=WEEKLY;INTERVAL=2']);
-      else ae(b);
-    });
-  });
-  L.push('END:VCALENDAR');
-  const url=URL.createObjectURL(new Blob([L.join('\r\n')],{type:'text/calendar;charset=utf-8'}));
-  const a=document.createElement('a');a.href=url;a.download='wassmans-kalender.ics';a.click();URL.revokeObjectURL(url);
-};
+window.exportICal=()=>{const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Wassmans//SV','CALSCALE:GREGORIAN','METHOD:PUBLISH'];const n=new Date();const st=`${n.getFullYear()}${p2(n.getMonth()+1)}${p2(n.getDate())}T${p2(n.getHours())}${p2(n.getMinutes())}${p2(n.getSeconds())}Z`;const fd=d=>`${d.getFullYear()}${p2(d.getMonth()+1)}${p2(d.getDate())}`;Object.entries(calEvs).forEach(([key,es])=>{const[y,m,d]=key.split('-').map(Number);const b=new Date(y,m-1,d);Object.entries(es).forEach(([id,ev])=>{const ae=(date,extra=[])=>{L.push('BEGIN:VEVENT',`UID:${id}-${fd(date)}@wassmans`,`DTSTAMP:${st}`);if(ev.allDay===false&&ev.startTime){L.push(`DTSTART:${fd(date)}T${ev.startTime.replace(':','')}00`,`DTEND:${fd(date)}T${(ev.endTime||ev.startTime).replace(':','')}00`);}else{L.push(`DTSTART;VALUE=DATE:${fd(date)}`,`DTEND;VALUE=DATE:${fd(new Date(date.getFullYear(),date.getMonth(),date.getDate()+1))}`);}L.push(`SUMMARY:${ev.title}`);if(ev.note)L.push(`DESCRIPTION:${ev.note}`);extra.forEach(l=>L.push(l));if(ev.alarm1)L.push('BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY',`DESCRIPTION:Imorgon: ${ev.title}`,'END:VALARM');if(ev.alarm3)L.push('BEGIN:VALARM','TRIGGER:-P3D','ACTION:DISPLAY',`DESCRIPTION:Om 3 dagar: ${ev.title}`,'END:VALARM');if(ev.alarm7)L.push('BEGIN:VALARM','TRIGGER:-P7D','ACTION:DISPLAY',`DESCRIPTION:Om 1 vecka: ${ev.title}`,'END:VALARM');if(ev.alarm14)L.push('BEGIN:VALARM','TRIGGER:-P14D','ACTION:DISPLAY',`DESCRIPTION:Om 2 veckor: ${ev.title}`,'END:VALARM');L.push('END:VEVENT');};if(ev.recurring)ae(b,['RRULE:FREQ=YEARLY']);else if(ev.recurWeekly)ae(b,['RRULE:FREQ=WEEKLY']);else if(ev.recurBiweekly)ae(b,['RRULE:FREQ=WEEKLY;INTERVAL=2']);else ae(b);});});L.push('END:VCALENDAR');const url=URL.createObjectURL(new Blob([L.join('\r\n')],{type:'text/calendar;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='wassmans-kalender.ics';a.click();URL.revokeObjectURL(url);};
 
 // ── tabs ──
-window.showTab=(name,btn)=>{
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
-  btn.classList.add('active');
-};
+window.showTab=(name,btn)=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active');};
 </script>
 </body>
 </html>
